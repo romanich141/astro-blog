@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const {frontmatter} = Astro.props;
+console.log(frontmatter);
+
+---
+
+<Layout title='Welcome to home page'>
+    <main>
+        <h1>Welcome to <span class="text-gradient">Home page</span></h1>
+        <p>This is my first page in Astro</p>
+        <p>Go to main page <a href="/">об Astro!</a></p>
+        <button>Click me</button>
+        <astro-heart>
+            <button aria-label="Сердце">💜</button> × <span>0</span>
+        </astro-heart>
+    </main>
+</Layout>
+
+<style>
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}	
+</style>
+<script is:inline>
+    const btn = document.querySelector('button');
+    btn.addEventListener('click', () => {
+        console.log('click')
+    });
+    
+     // Определяем поведение для нового HTML элемента.
+  class AstroHeart extends HTMLElement {
+    constructor() {
+      super();
+      let count = 0;
+
+      const heartButton = this.querySelector('button');
+      const countSpan = this.querySelector('span');
+
+      heartButton.addEventListener('click', () => {
+        count++;
+        countSpan.textContent = count;
+      });
+    }
+  }
+
+  customElements.define('astro-heart', AstroHeart);
+</script>
