@@ -1,16 +1,9 @@
 ---
-import Navigation from '../components/Navigation.astro';
-import Footer from '../components/Footer.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-import '../styles/global.css';
-
-const pageTitle = "My site in Astro";
+const pageTitle = "Home Page";
 ---
 
-<body>
-	<Navigation />
-  
-	<h1>{pageTitle}</h1>
-
-	<Footer/>
-  </body>
+<BaseLayout pageTitle={pageTitle}>
+	<h2>My awesome blog subtitle</h2>
+</BaseLayout≥>
