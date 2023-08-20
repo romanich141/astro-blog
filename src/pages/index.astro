@@ -1,13 +1,13 @@
 ---
+import Navigation from '../components/Navigation.astro';
+
 import '../styles/global.css';
 
 const pageTitle = "My site in Astro";
 ---
 
 <body>
-	<a href="/">Main</a>
-	<a href="/about/">About me</a>
-	<a href="/blog/">Blog</a>
+	<Navigation />
   
 	<h1>{pageTitle}</h1>
   </body>
